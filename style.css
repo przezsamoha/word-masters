@@ -1,0 +1,202 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: black;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: 25px;
+  padding: 0;
+  margin: 15px;
+  font-weight: 100;
+}
+
+.navbar {
+  font-family: 'Bevan', cursive;
+  border-bottom: 1px solid rgb(163, 163, 163);
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.info-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+}
+
+.letter-board {
+  max-width: 320px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  row-gap: 5px;
+  column-gap: 5px;
+  margin: 5px auto;
+  align-self: center;
+}
+
+.letter-tile {
+  font-family: Google Sans,-apple-system,BlinkMacSystemFont,sans-serif;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border: 2px solid rgb(224, 221, 221);
+  margin: 0;
+  padding: 0;
+  color: black;
+  text-transform: capitalize;
+  font-size: 35px;
+}
+
+/* below: I want to changed the border of filled tile to black - how? */
+.letter-tile:active {
+  border: 2px solid rgb(0, 0, 0);
+}
+
+.invalid {
+  animation: shake 0.8s;
+}
+
+/* shakes the invalid word for 0.8s */
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+.mark-as-correct {
+  background-color: #6aaa64;
+  border: none;
+  color: white;
+}
+
+.mark-as-close {
+  background-color: #c9b458;
+  border: none;
+  color: white;
+}
+
+.mark-as-wrong {
+  background-color: #787c7e;
+  border: none;
+  color: white;
+}
+
+.letter-tile-border {
+  border: 2px solid rgb(0, 0, 0);
+}
+
+.loader {
+  visibility: hidden;
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.show {
+  visibility: visible;
+}
+
+.loader div {
+  position: absolute;
+  top: 33px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: rgb(228, 228, 228);
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.loader div:nth-child(1) {
+  left: 8px;
+  animation: loader1 0.6s infinite;
+}
+.loader div:nth-child(2) {
+  left: 8px;
+  animation: loader2 0.6s infinite;
+}
+.loader div:nth-child(3) {
+  left: 32px;
+  animation: loader2 0.6s infinite;
+}
+.loader div:nth-child(4) {
+  left: 56px;
+  animation: loader3 0.6s infinite;
+}
+@keyframes loader1 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes loader3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes loader2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(24px, 0);
+  }
+}
+
+.winner {
+  animation:jump 0.5s;
+  animation-timing-function: ease;
+}
+
+@keyframes jump {
+  0% {
+    transform:translateY(0px)
+  }
+  50% {
+    transform:translateY(-15px);
+  }
+  100% {
+    transform:translateY(0px)	
+  }
+}
+
+/* .winner:nth-child(1) {
+  animation-delay:0s;
+}
+.winner:nth-child(2) {
+  animation-delay:.1s;	
+}
+.winner:nth-child(3) {
+  animation-delay:.2s;
+}
+.winner:nth-child(4) {
+  animation-delay:.3s;	
+}
+.winner:nth-child(5) {
+  animation-delay:.4s;
+} */
